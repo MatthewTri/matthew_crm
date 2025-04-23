@@ -184,6 +184,11 @@ Berikut adalah diagram relasi antar tabel pada sistem:
 
 
 
-Keterangan | Tanggal | Waktu
-⏳ Mulai Pengerjaan | 21 April 2025 | 10.00 WIB
-✅ Selesai Pengerjaan | 23 April 2025 | 21.30 WIB
+## 🕒 Waktu Pengerjaan
+
+| Keterangan           | Tanggal           | Waktu     |
+|----------------------|-------------------|-----------|
+| ⏳ Mulai Pengerjaan  | 21 April 2025     | 10.00 WIB |
+| ✅ Selesai Pengerjaan| 23 April 2025     | 21.30 WIB |
+
+> Total waktu pengerjaan: ± **2 hari 11 jam 30 menit**
