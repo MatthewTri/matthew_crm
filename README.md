@@ -104,9 +104,9 @@ Tampilan sales dan manager akan berbeda
 **Data Dictionary**
 | Tabel            | Kolom               | Tipe Data        | Deskripsi                                                                 |
 |------------------|---------------------|------------------|---------------------------------------------------------------------------|
-| `users`          | `id`                | BIGINT           | Primary key, ID pengguna.                                                 |
+| `users`          | `id`                | BIGINT           | Primary key, ID pengguna.                                                |
 |                  | `name`              | VARCHAR           | Nama lengkap pengguna.                                                   |
-|                  | `email`             | VARCHAR (UNIQUE) | Email pengguna, unik.                                                     |
+|                  | `email`             | VARCHAR (UNIQUE) | Email pengguna, unik.                                                    |
 |                  | `email_verified_at` | TIMESTAMP         | Waktu verifikasi email, bisa null.                                       |
 |                  | `password`          | VARCHAR           | Password terenkripsi.                                                    |
 |                  | `is_manager`        | BOOLEAN           | Apakah user seorang manajer. Default: false.                             |
@@ -114,45 +114,46 @@ Tampilan sales dan manager akan berbeda
 |                  | `created_at`        | TIMESTAMP         | Timestamp saat dibuat.                                                   |
 |                  | `updated_at`        | TIMESTAMP         | Timestamp saat diupdate.                                                 |
 
-| `customers`      | `id`                | BIGINT           | Primary key, ID customer.                                                 |
-|                  | `name`              | VARCHAR          | Nama customer.                                                            |
-|                  | `contact`           | VARCHAR          | Informasi kontak customer.                                                |
-|                  | `company`           | VARCHAR (nullable)| Nama perusahaan, opsional.                                               |
-|                  | `created_at`        | TIMESTAMP        | Timestamp saat dibuat.                                                    |
-|                  | `updated_at`        | TIMESTAMP        | Timestamp saat diupdate.                                                  |
+| `customers`      | `id`                | BIGINT           | Primary key, ID customer.                                                |
+|                  | `name`              | VARCHAR          | Nama customer.                                                           |
+|                  | `contact`           | VARCHAR          | Informasi kontak customer.                                               |
+|                  | `company`           | VARCHAR (nullable)| Nama perusahaan, opsional.                                              |
+|                  | `created_at`        | TIMESTAMP        | Timestamp saat dibuat.                                                   |
+|                  | `updated_at`        | TIMESTAMP        | Timestamp saat diupdate.                                                 |
 
-| `products`       | `id`                | BIGINT           | Primary key, ID produk.                                                   |
-|                  | `name`              | VARCHAR          | Nama produk.                                                              |
-|                  | `description`       | TEXT (nullable)  | Deskripsi produk, opsional.                                               |
-|                  | `price`             | DECIMAL(12,2)    | Harga produk.                                                             |
-|                  | `created_at`        | TIMESTAMP        | Timestamp saat dibuat.                                                    |
-|                  | `updated_at`        | TIMESTAMP        | Timestamp saat diupdate.                                                  |
+| `products`       | `id`                | BIGINT           | Primary key, ID produk.                                                  |
+|                  | `name`              | VARCHAR          | Nama produk.                                                             |
+|                  | `description`       | TEXT (nullable)  | Deskripsi produk, opsional.                                              |
+|                  | `price`             | DECIMAL(12,2)    | Harga produk.                                                            |
+|                  | `created_at`        | TIMESTAMP        | Timestamp saat dibuat.                                                   |
+|                  | `updated_at`        | TIMESTAMP        | Timestamp saat diupdate.                                                 |
 
-| `leads`          | `id`                | BIGINT           | Primary key, ID lead.                                                     |
-|                  | `user_id`           | BIGINT (FK)      | Foreign key ke `users`, sales yang input data.                            |
-|                  | `product_id`        | BIGINT (FK)      | Foreign key ke `products`, produk yang dipilih.                           |
+| `leads`          | `id`                | BIGINT           | Primary key, ID lead.                                                    |
+|                  | `user_id`           | BIGINT (FK)      | Foreign key ke `users`, sales yang input data.                           |
+|                  | `product_id`        | BIGINT (FK)      | Foreign key ke `products`, produk yang dipilih.                          |
 |                  | `customer_id`       | BIGINT (nullable, FK)| Foreign key ke `customers`, opsional.                                 |
-|                  | `name`              | VARCHAR          | Nama calon customer.                                                      |
-|                  | `contact`           | VARCHAR          | Kontak calon customer.                                                    |
-|                  | `company`           | VARCHAR (nullable)| Nama perusahaan, opsional.                                               |
-|                  | `notes`             | TEXT (nullable)  | Catatan tambahan.                                                         |
-|                  | `customer_created`  | BOOLEAN          | Apakah customer sudah dibuat? Default: false.                             |
-|                  | `created_at`        | TIMESTAMP        | Timestamp saat dibuat.                                                    |
-|                  | `updated_at`        | TIMESTAMP        | Timestamp saat diupdate.                                                  |
+|                  | `name`              | VARCHAR          | Nama calon customer.                                                    |
+|                  | `contact`           | VARCHAR          | Kontak calon customer.                                                  |
+|                  | `company`           | VARCHAR (nullable)| Nama perusahaan, opsional.                                             |
+|                  | `notes`             | TEXT (nullable)  | Catatan tambahan.                                                       |
+|                  | `customer_created`  | BOOLEAN          | Apakah customer sudah dibuat? Default: false.                           |
+|                  | `created_at`        | TIMESTAMP        | Timestamp saat dibuat.                                                  |
+|                  | `updated_at`        | TIMESTAMP        | Timestamp saat diupdate.                                                |
 
-| `projects`       | `id`                | BIGINT           | Primary key, ID proyek.                                                   |
-|                  | `lead_id`           | BIGINT (FK)      | Foreign key ke `leads`, proyek dari lead.                                 |
+| `projects`       | `id`                | BIGINT           | Primary key, ID proyek.                                                  |
+|                  | `lead_id`           | BIGINT (FK)      | Foreign key ke `leads`, proyek dari lead.                                |
 |                  | `approved_by`       | BIGINT (nullable, FK)| Foreign key ke `users`, manajer yang menyetujui.                      |
-|                  | `status`            | ENUM             | Status proyek: `pending`, `approved`, `rejected`.                         |
-|                  | `notes`             | TEXT (nullable)  | Catatan tambahan.                                                         |
-|                  | `created_at`        | TIMESTAMP        | Timestamp saat dibuat.                                                    |
-|                  | `updated_at`        | TIMESTAMP        | Timestamp saat diupdate.                                                  |
+|                  | `status`            | ENUM             | Status proyek: `pending`, `approved`, `rejected`.                        |
+|                  | `notes`             | TEXT (nullable)  | Catatan tambahan.                                                       |
+|                  | `created_at`        | TIMESTAMP        | Timestamp saat dibuat.                                                  |
+|                  | `updated_at`        | TIMESTAMP        | Timestamp saat diupdate.                                                |
 
-| `subscriptions`  | `id`                | BIGINT           | Primary key, ID langganan.                                                |
-|                  | `customer_id`       | BIGINT (FK)      | Foreign key ke `customers`.                                               |
-|                  | `product_id`        | BIGINT (FK)      | Foreign key ke `products`.                                                |
-|                  | `start_date`        | DATE (nullable)  | Tanggal mulai langganan.                                                  |
-|                  | `end_date`          | DATE (nullable)  | Tanggal akhir langganan.                                                  |
-|                  | `created_at`        | TIMESTAMP        | Timestamp saat dibuat.                                                    |
-|                  | `updated_at`        | TIMESTAMP        | Timestamp saat diupdate.                                                  |
+| `subscriptions`  | `id`                | BIGINT           | Primary key, ID langganan.                                               |
+|                  | `customer_id`       | BIGINT (FK)      | Foreign key ke `customers`.                                              |
+|                  | `product_id`        | BIGINT (FK)      | Foreign key ke `products`.                                               |
+|                  | `start_date`        | DATE (nullable)  | Tanggal mulai langganan.                                                 |
+|                  | `end_date`          | DATE (nullable)  | Tanggal akhir langganan.                                                 |
+|                  | `created_at`        | TIMESTAMP        | Timestamp saat dibuat.                                                  |
+|                  | `updated_at`        | TIMESTAMP        | Timestamp saat diupdate.                                                |
+
 
