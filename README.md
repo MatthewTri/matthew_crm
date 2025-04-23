@@ -101,6 +101,10 @@ Tampilan sales dan manager akan berbeda
 
 
 
+
+
+
+
 **Data Dictionary**
 | Tabel            | Kolom               | Tipe Data        | Deskripsi                                                                 |
 |------------------|---------------------|------------------|---------------------------------------------------------------------------|
@@ -165,5 +169,16 @@ Tampilan sales dan manager akan berbeda
 |                  | `end_date`          | DATE (nullable)  | Tanggal akhir langganan.                                                 |
 |                  | `created_at`        | TIMESTAMP        | Timestamp saat dibuat.                                                  |
 |                  | `updated_at`        | TIMESTAMP        | Timestamp saat diupdate.                                                |
+
+
+
+## ERD (Entity Relationship Diagram)
+
+Berikut adalah diagram relasi antar tabel pada sistem:
+
+![ERD Diagram](docs/matthew_crm.drawio.png)
+
+ ## File sql : 
+🔗 [Klik untuk unduh struktur database (.sql)](docs/matthew_crm.sql)
 
 
