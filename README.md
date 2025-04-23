@@ -182,3 +182,8 @@ Berikut adalah diagram relasi antar tabel pada sistem:
 🔗 [Klik untuk unduh struktur database (.sql)](docs/matthew_crm.sql)
 
 
+
+
+Keterangan | Tanggal | Waktu
+⏳ Mulai Pengerjaan | 21 April 2025 | 10.00 WIB
+✅ Selesai Pengerjaan | 23 April 2025 | 21.30 WIB
