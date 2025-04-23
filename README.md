@@ -114,6 +114,8 @@ Tampilan sales dan manager akan berbeda
 |                  | `created_at`        | TIMESTAMP         | Timestamp saat dibuat.                                                   |
 |                  | `updated_at`        | TIMESTAMP         | Timestamp saat diupdate.                                                 |
 
+| Tabel            | Kolom               | Tipe Data        | Deskripsi                                                                 |
+|------------------|---------------------|------------------|---------------------------------------------------------------------------|
 | `customers`      | `id`                | BIGINT           | Primary key, ID customer.                                                |
 |                  | `name`              | VARCHAR          | Nama customer.                                                           |
 |                  | `contact`           | VARCHAR          | Informasi kontak customer.                                               |
@@ -121,6 +123,8 @@ Tampilan sales dan manager akan berbeda
 |                  | `created_at`        | TIMESTAMP        | Timestamp saat dibuat.                                                   |
 |                  | `updated_at`        | TIMESTAMP        | Timestamp saat diupdate.                                                 |
 
+| Tabel            | Kolom               | Tipe Data        | Deskripsi                                                                 |
+|------------------|---------------------|------------------|---------------------------------------------------------------------------|
 | `products`       | `id`                | BIGINT           | Primary key, ID produk.                                                  |
 |                  | `name`              | VARCHAR          | Nama produk.                                                             |
 |                  | `description`       | TEXT (nullable)  | Deskripsi produk, opsional.                                              |
@@ -128,6 +132,8 @@ Tampilan sales dan manager akan berbeda
 |                  | `created_at`        | TIMESTAMP        | Timestamp saat dibuat.                                                   |
 |                  | `updated_at`        | TIMESTAMP        | Timestamp saat diupdate.                                                 |
 
+| Tabel            | Kolom               | Tipe Data        | Deskripsi                                                                 |
+|------------------|---------------------|------------------|---------------------------------------------------------------------------|
 | `leads`          | `id`                | BIGINT           | Primary key, ID lead.                                                    |
 |                  | `user_id`           | BIGINT (FK)      | Foreign key ke `users`, sales yang input data.                           |
 |                  | `product_id`        | BIGINT (FK)      | Foreign key ke `products`, produk yang dipilih.                          |
@@ -140,6 +146,8 @@ Tampilan sales dan manager akan berbeda
 |                  | `created_at`        | TIMESTAMP        | Timestamp saat dibuat.                                                  |
 |                  | `updated_at`        | TIMESTAMP        | Timestamp saat diupdate.                                                |
 
+| Tabel            | Kolom               | Tipe Data        | Deskripsi                                                                 |
+|------------------|---------------------|------------------|---------------------------------------------------------------------------|
 | `projects`       | `id`                | BIGINT           | Primary key, ID proyek.                                                  |
 |                  | `lead_id`           | BIGINT (FK)      | Foreign key ke `leads`, proyek dari lead.                                |
 |                  | `approved_by`       | BIGINT (nullable, FK)| Foreign key ke `users`, manajer yang menyetujui.                      |
@@ -148,6 +156,8 @@ Tampilan sales dan manager akan berbeda
 |                  | `created_at`        | TIMESTAMP        | Timestamp saat dibuat.                                                  |
 |                  | `updated_at`        | TIMESTAMP        | Timestamp saat diupdate.                                                |
 
+| Tabel            | Kolom               | Tipe Data        | Deskripsi                                                                 |
+|------------------|---------------------|------------------|---------------------------------------------------------------------------|
 | `subscriptions`  | `id`                | BIGINT           | Primary key, ID langganan.                                               |
 |                  | `customer_id`       | BIGINT (FK)      | Foreign key ke `customers`.                                              |
 |                  | `product_id`        | BIGINT (FK)      | Foreign key ke `products`.                                               |
