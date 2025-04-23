@@ -1,71 +1,93 @@
-<<<<<<< HEAD
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Matthew CRM
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Aplikasi CRM (Customer Relationship Management) sederhana berbasis Laravel 11 dan PostgreSQL, dibuat untuk memenuhi tugas pengembangan web dengan ketentuan waktu 3x24 jam.
 
-## About Laravel
+---
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## 🚀 Fitur Utama
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+- Autentikasi pengguna (Login , Logout)
+- Manajemen data Layanan Produk (CRUD) (Manager Only)
+- Manajemen project untuk proses lead (calon customer)
+- Penambahan Lead dari pihak Sales
+- Delete Subscription yang bisa dilakukan oleh Manager saja
+- Role-based access (Manager & sales)
+- Responsive UI dengan Tailwind CSS
+- Relasi antar tabel menggunakan Eloquent ORM
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+---
 
-## Learning Laravel
+## 🧠 Flow Aplikasi (Asumsi)
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+1. Sales / Manager melakukan login
+   
+   -- FLOW SALES --
+2. Sales dapat melihat data lead pada halaman /leads untuk menambahkan data lead atau track setiap proposal lead (yang diajukan ke manager) yang masih pending , approved / rejected dari manager.
+3. Setelah di proses oleh pihak manager , data lead pada website akan diperbarui dan sales akan melakukan kontak kepada setiap lead bahwa produk layanan yang ingin mereka beli itu approved/rejected karena alasan tertentu.
+4. Sales HANYA dapat melihat layanan produk yang disediakan oleh PT. Smart pada halaman /products (tidak bisa Create, Update , Delete)
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+   -- FLOW MANAGER --
+2. Setelah login , tugas utama manager adalah untuk memproses dan memverifikasi setiap data lead yang sudah diajukan oleh pihak sales untuk akhirnya di approve/reject karena alasan yang diberikan oleh manager. (di /projects)
+3. Manager dapat view detail setiap lead yang diajukan dan akhirnya menulis notes yang bisa dibaca oleh pihak sales nantinya (alasan di approve / reject)
+4. Jika project di approve oleh manager , data dari lead (calon customer) yang diajukan , akan berubah menjadi customer (sudah berlangganan)
+5. Karena sudah menjadi customer, maka data customer akan didaftarkan dalam halaman Customer's Subscription (/subscriptions) untuk melihat customer yang sudah berlangganan disertai layanan yang mereka ambil.
+6. Manager dapat CRUD untuk bagian produk layanan yang disediakan oleh PT. Smart
+7. Manager juga dapat melakukan 'End Subscription' pada halaman /subscriptions untuk menghentikan layanan produk yang diambil oleh customer secara PAKSA
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+Beberapa Asumsi :
+- Sales hanya dapat create lead , dan baca berbagai list produk saja
+- Sales hanya diberi akses pada /leads dan /products
+- Manager diberikan akses semuanya seperti /leads , /products, /projects , /subscriptions
+- Bedanya dalam /products adalah Manager dapat CRUD products , dan sales hanya read
+- Saat salah satu lead diapprove manager, data lead langsung menjadi customer , dan SEMUA produk layanan yang dibeli oleh customer hanya berlaku selama sebulan
+- Delete subscription yang dilakukan oleh manager hanya dilakukan secara paksa jika ada kondisi tertentu (seharusnya otomatis terhenti saat 1 bulan , dan harus dihentikan sebelum 1 bulan)
+- Meskipun data lead sama seperti nama lead dan kontak lead (orang yang sama) dan mau memiliki lebih dari 1 subscription , maka harus didaftarkan lebih dari 1 kali oleh pihak sales untuk orang yang sama dan subscription yang berbeda.
+- Jika salah satu produk dihapus , data yang terkait seperti leads, projects, dan customers yang terkait dengan produk tersebut akan hilang semua
+- Jika salah satu subscription dihapus , maka data terkait yang terdaftarkan seperti customers dan lead akan dihapus juga
 
-## Laravel Sponsors
+---
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+## 💾 Teknologi yang Digunakan
 
-### Premium Partners
+| Teknologi        | Versi       |
+|------------------|-------------|
+| Laravel          | 11.x        |
+| PHP              | >= 8.2      |
+| PostgreSQL       | v17         |
+| Tailwind CSS     | Latest      |
+| DBeaver          | Optional    |
+| Draw.io          | Optional    |
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+---
 
-## Contributing
+## ⚙️ Cara Install dan Menjalankan
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+1. **Clone Repository**
+   ```bash
+  1. git clone https://github.com/MatthewTri/matthew_crm.git
+  2. cd matthew_crm
+  3. composer install
+  4. cp .env.example .env
+  5. php artisan key:generate
 
-## Code of Conduct
+Pastikan file env adalah seperti berikut : 
+DB_CONNECTION=pgsql
+DB_HOST=127.0.0.1
+DB_PORT=5432
+DB_DATABASE=sales
+DB_USERNAME=postgres
+DB_PASSWORD=postgres
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+   6. php artisan migrate --seed
+   7. php artisan serve
 
-## Security Vulnerabilities
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+-- NOTE PENTING -- 
+Akan ada 3 user yang saya create dari seed (2 sales , 1 manager)
 
-## License
+   Data login untuk setiap usernya :
+   1. email : sales@gmail.com  ,  password : password
+   2. email : sales2@gmail.com  ,  password : password
+   3. email : manager@gmail.com , password : password
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
-=======
-# Matthew_crm
-Tes buat website untuk apply magang D-NET
->>>>>>> 99164a76580dc8ddb8db72d71d12d4393c71cdfe
+Tampilan sales dan manager akan berbeda
