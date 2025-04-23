@@ -62,8 +62,8 @@ Beberapa Asumsi :
 
 ## ⚙️ Cara Install dan Menjalankan
 
-1. **Clone Repository**
-   ```bash
+  **Clone Repository**
+  
   1. git clone https://github.com/MatthewTri/matthew_crm.git
   2. cd matthew_crm
   3. composer install
