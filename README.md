@@ -62,6 +62,13 @@ Beberapa Asumsi :
 
 ## ⚙️ Cara Install dan Menjalankan
 
+**Pembuatan Database**
+1. Buka pgAdmin
+2. Login sebagai user postgres , jika ada password juga = postgres
+3. Klik kanan pada Databases → pilih Create > Database
+4. Isi nama database: sales, lalu klik Save
+5. Selesai, database siap digunakan (untuk masukkan datanya lewat php artisan migrate , ikuti langkah dibawah)
+
   **Clone Repository**
   
   1. git clone https://github.com/MatthewTri/matthew_crm.git
