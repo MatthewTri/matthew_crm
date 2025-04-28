@@ -11,6 +11,11 @@ use App\Http\Controllers\CustomerController;
 use App\Models\Product;
 
 
+Route::get('/', function () {
+    return redirect('/login');
+});
+
+
 Route::get('/login', [LoginController::class, 'index']) ->middleware('guest') -> name('login');
 
 Route::post('/login', [LoginController::class, 'authenticate']);
