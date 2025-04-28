@@ -101,6 +101,10 @@ Tampilan sales dan manager akan berbeda
 
 
 
+
+
+
+
 **Data Dictionary**
 | Tabel            | Kolom               | Tipe Data        | Deskripsi                                                                 |
 |------------------|---------------------|------------------|---------------------------------------------------------------------------|
@@ -167,3 +171,24 @@ Tampilan sales dan manager akan berbeda
 |                  | `updated_at`        | TIMESTAMP        | Timestamp saat diupdate.                                                |
 
 
+
+## ERD (Entity Relationship Diagram)
+
+Berikut adalah diagram relasi antar tabel pada sistem:
+
+![ERD Diagram](docs/matthew_crm.drawio.png)
+
+ ## File sql : 
+🔗 [Klik untuk unduh struktur database (.sql)](docs/matthew_crm.sql)
+
+
+
+
+## 🕒 Waktu Pengerjaan
+
+| Keterangan           | Tanggal           | Waktu     |
+|----------------------|-------------------|-----------|
+| ⏳ Mulai Pengerjaan  | 21 April 2025     | 10.00 WIB |
+| ✅ Selesai Pengerjaan| 23 April 2025     | 21.30 WIB |
+
+> Total waktu pengerjaan: ± **2 hari 11 jam 30 menit**
