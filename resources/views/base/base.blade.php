@@ -1512,6 +1512,8 @@ video {
     </style>
 </head>
 <body class="text-gray-800 font-inter">
+
+  {{-- @include('loading') --}}
     <!-- sidenav -->
     <div class="fixed left-0 top-0 w-64 h-full bg-[#f8f4f3] p-4 z-50 sidebar-menu transition-transform flex flex-col justify-between">
       <div>

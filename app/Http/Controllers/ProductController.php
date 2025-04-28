@@ -13,6 +13,14 @@ class ProductController extends Controller
      */
     public function index()
     {
+
+        // $query = Product::query();
+
+        // if (request('search')) {
+        //     $query->where('name', 'like', '%' . request('search') . '%')
+        //         ->orWhere('description', 'like', '%' . request('search') . '%');
+        // }
+
         return view('products.index', [
             'products' => Product::all()
         ]);
