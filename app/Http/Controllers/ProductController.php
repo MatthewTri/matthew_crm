@@ -81,6 +81,10 @@ class ProductController extends Controller
      */
     public function destroy(Product $product)
     {
+
+        // $product->load('subscriptions.customer');
+
+        // Hapus semua subscription yang terkait dengan produk ini
         foreach ($product->subscriptions as $subscription) {
             // Hapus customer jika ada
             if ($subscription->customer) {

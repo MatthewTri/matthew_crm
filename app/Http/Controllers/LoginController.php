@@ -10,9 +10,13 @@ use Illuminate\Support\Facades\Auth;
 class LoginController extends Controller
 {
     public function index () {
-        return view('login.index', [
-            // 'title' => 'Login',
-        ]);
+
+        if (Auth::check()) {
+            // Kalau sudah login, langsung redirect ke /leads
+            return redirect('leads');
+        }
+
+        return view('login.index');
     }
 
     public function authenticate(Request $r) {
@@ -24,7 +28,7 @@ class LoginController extends Controller
 
         if (Auth::attempt($credentials)) {
             $r->session()->regenerate();
-            return redirect()->intended('/');
+            return redirect()->intended('/leads');
         }
 
 
@@ -40,6 +44,6 @@ class LoginController extends Controller
         $r->session()->invalidate();
         $r->session()->regenerateToken();
 
-        return redirect('/leads')->with('success', 'Logout success!');
+        return redirect('/login')->with('success', 'Logout success!');
     }
 }

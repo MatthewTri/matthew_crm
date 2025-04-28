@@ -64,6 +64,8 @@ class ProjectController extends Controller
             'status' => 'required|in:pending,approved,rejected',
         ]);
 
+        // $project->load('lead');
+
         // Update catatan & status project
         $project->update([
             'notes' => $validated['notes'],

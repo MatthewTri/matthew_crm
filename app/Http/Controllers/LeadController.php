@@ -19,6 +19,12 @@ class LeadController extends Controller
         $approvedLeads = Lead::whereHas('project', fn($q) => $q->where('status', 'approved'))->get();
         $rejectedLeads = Lead::whereHas('project', fn($q) => $q->where('status', 'rejected'))->get();
 
+        // $pendingLeads = Lead::with('project')->whereHas('project', fn($q) => $q->where('status', 'pending'))->get();
+        // $approvedLeads = Lead::with('project')->whereHas('project', fn($q) => $q->where('status', 'approved'))->get();
+        // $rejectedLeads = Lead::with('project')->whereHas('project', fn($q) => $q->where('status', 'rejected'))->get();
+
+
+
         return view('leads.index', compact('pendingLeads', 'approvedLeads', 'rejectedLeads'));
     }
 
@@ -69,6 +75,9 @@ class LeadController extends Controller
      */
     public function show(Lead $lead)
     {
+
+        // $lead->load('project'); 
+
         $projectNotes = $lead->project ? $lead->project->notes : 'Tidak ada catatan dari manager';
 
         return view('leads.show', compact('lead', 'projectNotes'));
